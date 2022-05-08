@@ -55,8 +55,8 @@ export async function uploadVaultDescription(vaultDescription: IVaultDescription
         }
     }
 
-    const ipfsHash = await pinJson(vaultDescription)
-    window.location.href = `${RoutePaths.vault_editor}/${ipfsHash}`
+    const ipfsHash = await pinFile(JSON.stringify(vaultDescription, null, 2));
+    window.location.href = `${RoutePaths.vault_editor}/${ipfsHash}`;
 }
 
 export async function getSignatures(ipfsHash: string) {
